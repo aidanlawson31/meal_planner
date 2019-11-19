@@ -21,8 +21,8 @@ class App extends Component {
     };
 
     // Retrieves all blogs at start of the app
-    handleBlogs = (blogs) => {
-      this.setState({blogs})
+    handleMeals = (meals) => {
+      this.setState({meals})
     }
 
   render() { 
