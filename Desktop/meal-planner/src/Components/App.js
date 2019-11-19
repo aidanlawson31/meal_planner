@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Form from './Form'
+import Form from '../Components/Form'
 import ViewMealModel from './ViewMealModel'
-import './App.css';
+import '../App.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 
 const { Header, Content, Footer } = Layout;
@@ -33,10 +33,10 @@ class App extends Component {
          
      
         <Form />
-        <Meal 
+        {/* <Meal 
         handleNewMeal={this.handleNewMeals}
         handleMeals={this.handleMeals}
-        />
+        /> */}
         <ViewMealModel />
       </div>
     )
