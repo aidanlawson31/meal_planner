@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form from '../Components/Form'
-import ViewMealModel from './ViewMealModel'
+import Meal from '../Components/Meal'
 import '../App.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 
@@ -9,8 +9,7 @@ const { Header, Content, Footer } = Layout;
 
 class App extends Component {
   state = {
-    meals: [],
-    mealsCart: []
+    meals: []
     }
 
     // Handling new meals
@@ -27,17 +26,12 @@ class App extends Component {
 
   render() { 
     const {meals} = this.state
-    const {mealsCart} = this.state
     return ( 
       <div className='layout'>
          
      
         <Form />
-        {/* <Meal 
-        handleNewMeal={this.handleNewMeals}
-        handleMeals={this.handleMeals}
-        /> */}
-        <ViewMealModel />
+        <Meal />
       </div>
     )
   };

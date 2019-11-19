@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import { Modal, Button } from 'antd';
 
 export default class Meal extends Component {
   state = {
     name: "",
     description: "",
-    price: ""
+    price: "",
+    visible: false
   }
 
-  onViewMore = () => {
+  viewModal = e => {
+    this.setState({
+      visible: true,
+    })
+  }
 
+  closeModal = e => {
+    this.setState({
+      visible: true
+    })
   }
 
   render() {
@@ -17,8 +27,12 @@ export default class Meal extends Component {
         <h1>Meal name</h1>
         <p>Meal description</p>
         <p>meal price</p>
-        <button>View more</button>
+        <button onClick={this.viewModal()}>View more</button>
         <button>Add to cart</button>
+       <Modal
+       visible false>
+         <button onClick={this.closeModal()}>close</button>
+       </Modal>
       </div>
     )
   }
