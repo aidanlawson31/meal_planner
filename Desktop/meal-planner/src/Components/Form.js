@@ -8,8 +8,8 @@ export default class Form extends Component {
     constructor(props){
         super(props)
             this.state = {
-                title: '',
-                description: '',
+                title: "",
+                description: "",
                 price: ""
             }
     };
@@ -27,9 +27,11 @@ export default class Form extends Component {
                 title: this.title,
                 description: this.description
             })
-            this.props.handleNewMeal()
+            let meal = this.state
+            this.props.handleNewMeal(meal)
             console.log(this.state)
         };
+
   render(){
     return(
         <div>
@@ -37,19 +39,19 @@ export default class Form extends Component {
                 <Input 
                     placeholder="Meal name" 
                     allowClear 
-                    name="Title"
+                    name="title"
                     onChange={this.onChange} />
                 <br />
                 <br />
                 <TextArea 
                     placeholder="Meal description" 
                     allowClear 
-                    name="Description"
+                    name="description"
                     onChange={this.onChange} />
                     <Input 
                     placeholder="Meal Price" 
                     allowClear 
-                    name="Price"
+                    name="price"
                     onChange={this.onChange} />
                 <Input
                     placeholder="Submit"

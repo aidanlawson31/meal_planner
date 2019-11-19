@@ -13,7 +13,6 @@ const { Header, Content } = Layout;
 class App extends Component {
   state = {
     meals: [],
-    mealsCart: []
     }
 
     // Handling new meals
@@ -21,25 +20,18 @@ class App extends Component {
       this.setState({
         meals: [...this.state.meals, meal]
       })
+      console.log("new",this.state.meals)
     };
 
     // Retrieves all blogs at start of the app
     handleMeals = (meals) => {
       this.setState({meals})
+       console.log(meals)
     }
-    handledeletedMeal = title => {
-      // create a copy of the existing blogs array
-      const index = this.state.meals.findIndex(meal => meal.title === title);
-      const meals = [...this.state.meals];
-      meals.splice(index, 1);
-      this.setState({
-          meals: meals
-      });
-  };
+
 
   render() { 
     const {meals} = this.state
-    const {mealsCart} = this.state
     return ( 
       <div className='layout'>
            <Layout className="layout">
@@ -60,7 +52,8 @@ class App extends Component {
                 <Form 
                 handleNewMeal={this.handleNewMeal}
                 />
-        `          <Meal 
+        `          <Meal
+                  meals={meals}
                   handleNewMeal={this.handleNewMeal}
                   handleMeals={this.handleMeals}
                   handledeletedMeal={this.handledeletedMeal}

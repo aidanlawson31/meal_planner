@@ -14,6 +14,8 @@ export default class Meal extends Component {
 
         visible: false
       }
+      console.log(this.state);
+
     }
 
   openModal = meal => {
@@ -32,9 +34,9 @@ export default class Meal extends Component {
   handleSizeChange = e => {
     this.setState({ size: e.target.value });
   };
+  
     logChange = e => {
       this.setState({ [e.target.name]: e.target.value });
-      console.log(this.state);
   };
 
     handleEdit = e => {
@@ -48,17 +50,17 @@ export default class Meal extends Component {
 
     }
 
-    fetchMeals = async (meals) => {
-      this.props.handleMeals(meals)
-    }
+  //   fetchMeals = async (meals) => {
+  //     this.props.handleMeals(meals)
+  //   }
 
 
-  // onViewMore = () => {
+  // // onViewMore = () => {
 
-  // }
-      componentDidMount() {
-        this.fetchMeals();
-    }
+  // // }
+  //     componentDidMount() {
+  //       this.fetchMeals();
+  //   }
   render() {
     const { size } = this.state;
     const { meals } = this.props;
@@ -75,7 +77,9 @@ export default class Meal extends Component {
                       style={{ width: 240 }}
                       cover={<img alt="example" src="https://www.anita.com/blog/us/wp-content/uploads/sites/3/2016/02/blog-success.jpg" />}
                   >
-                      <Meta title={meal.title} description={meal.description} />
+                      <Meta 
+                      title={meal.title} 
+                      description={meal.description} />
                       <Button type="primary" onClick={() => this.openModal(meal)}>
                           Edit
                       </Button>
