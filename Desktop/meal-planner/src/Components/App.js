@@ -9,7 +9,7 @@ function App() {
         <h1>Meal Planner</h1>
       </header>
     </div>
-  );
+  )
 }
 
 export default App;
