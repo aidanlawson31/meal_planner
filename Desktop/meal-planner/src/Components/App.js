@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Form from './Form'
+import ViewMealModel from './ViewMealModel'
 import './App.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
 
-<<<<<<< HEAD
 const { Header, Content, Footer } = Layout;
 
 
@@ -31,20 +32,15 @@ class App extends Component {
       <div className='layout'>
          
      
-
+        <Form />
+        <Meal 
+        handleNewMeal={this.handleNewMeals}
+        handleMeals={this.handleMeals}
+        />
+        <ViewMealModel />
       </div>
     )
   };
-=======
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Meal Planner</h1>
-      </header>
-    </div>
-  )
->>>>>>> 103e00982e97e11dd0f39d2c44740ac4e99dad6f
 }
-
+ 
 export default App;
