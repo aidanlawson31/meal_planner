@@ -20,3 +20,31 @@
 .App-link {
   color: #09d3ac;
 }
+
+.navbar {
+  background-color: #2F2F2F;
+}
+
+.ant-layout-header {
+  background-color: #2F2F2F !important;
+}
+
+.submit-button {
+  background-color: #94BFA7;
+  color: white;
+  width: 100px;
+}
+
+.nav-button:hover {
+  border-bottom: 2px solid transparent !important;
+  color: inherit !important;
+}
+
+html {
+  --antd-wave-shadow-color: #94BFA7 !important;
+}
+
+::selection {
+  color: #fff;
+  background: #94BFA7;
+}

@@ -48,6 +48,7 @@ class App extends Component {
               mode="horizontal"
               defaultSelectedKeys={['2']}
               style={{ lineHeight: '64px' }}
+              className="navbar"
             >
               <Menu.Item key="1" href="#">
               <Link to="Home">Home</Link>
