@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Modal, Button, Input, Row, Col, Card} from 'antd';
-const { TextArea } = Input;
-const { Meta }     = Card;
+import { Modal, Button, Row, Col, Card} from 'antd';
+const { Meta } = Card;
 
 export default class Meal extends Component {
   constructor(props){
@@ -64,12 +63,7 @@ export default class Meal extends Component {
 
 
 
-  // }
-    //   componentDidMount() {
-    //     this.fetchMeals();
-    // }
   render() {
-    const { size } = this.state;
     const { meals } = this.props;
 
     return(
@@ -101,7 +95,7 @@ export default class Meal extends Component {
                 onCancel={this.closeModal}
               >
                 <h1>{this.state.title}</h1>
-                <img src={this.state.pictureURL}></img>
+                <img alt="example" src={this.state.pictureURL}></img>
                 <br />
                 <h1>${this.state.price}</h1>
                 <br />

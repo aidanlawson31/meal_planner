@@ -4,7 +4,6 @@ import Meal from './Meal'
 import { Layout, Menu, Button } from 'antd';
 import 'antd/dist/antd.css';
 import '../App.css';
-import { render } from "react-dom"
 import { Router, Link } from "@reach/router"
 
 const { Header, Content } = Layout;
