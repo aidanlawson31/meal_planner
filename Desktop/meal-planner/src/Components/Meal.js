@@ -67,7 +67,7 @@ export default class Meal extends Component {
     const { meals } = this.props;
 
     return(
-      <div>
+      <div className='cards'>
         <Row>
           {meals.map(meal => (
             <div>
@@ -75,7 +75,8 @@ export default class Meal extends Component {
                   <Card
                       hoverable
                       style={{ width: 240 }}
-                      cover={<img alt="example" src={meal.pictureURL} />}
+                      cover={<img alt="example" src={meal.pictureURL}/>} 
+                    
                   >
                       <Meta 
                       title={meal.title}
@@ -95,7 +96,7 @@ export default class Meal extends Component {
                 onCancel={this.closeModal}
               >
                 <h1>{this.state.title}</h1>
-                <img alt="example" src={this.state.pictureURL}></img>
+                <img alt="example" src={this.state.pictureURL}  style={{height:350, width:400}}></img>
                 <br />
                 <h1>${this.state.price}</h1>
                 <br />

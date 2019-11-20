@@ -53,8 +53,9 @@ class App extends Component {
               <Link to="Home">Home</Link>
               </Menu.Item>
               <Menu.Item key="2" href="#">
-              <Button type="primary"><Link to="Form">Create Meal</Link></Button>
-              </Menu.Item>          
+            <Link to="Form">Create Meal</Link>
+            </Menu.Item>    
+         
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
