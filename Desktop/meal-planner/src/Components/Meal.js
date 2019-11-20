@@ -10,6 +10,8 @@ export default class Meal extends Component {
         title: "",
         description: "",
         price: "",
+        pictureURL: [],
+
         size: "large",
       
         visible: false
@@ -22,7 +24,8 @@ export default class Meal extends Component {
         this.setState({
             visible: true,
             title: meal.title,
-            description: meal.description
+            description: meal.description,
+            pictureURL: meal.pictureURL
         });
     };
       closeModal = () => {
@@ -44,7 +47,8 @@ export default class Meal extends Component {
       // create a variable that should be passed to the database
       var meal = {
           title: this.state.title,
-          description: this.state.description
+          description: this.state.description,
+          pictureURL: this.state.pictureURL
       };
       this.props.handleMeals(meal)
 
@@ -75,11 +79,10 @@ export default class Meal extends Component {
           {meals.map(meal => (
             <div>
               <Col span={6}>
-<<<<<<< HEAD
                   <Card
                       hoverable
                       style={{ width: 240 }}
-                      cover={<img alt="example" src={meal.pictures[0].file} />}
+                      cover={<img alt="example" src={meal.pictureURL} />}
                   >
                       <Meta 
                       title={meal.title} 
@@ -90,21 +93,6 @@ export default class Meal extends Component {
                       </Button>
                       <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
                   </Card>
-=======
-                <Card
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt="example" src="https://www.anita.com/blog/us/wp-content/uploads/sites/3/2016/02/blog-success.jpg" />}
-                >
-                  <Meta 
-                  title={meal.title} 
-                  description={meal.description} />
-                  <Button type="primary" onClick={() => this.openModal(meal)}>
-                    Edit
-                  </Button>
-                  <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
-                </Card>
->>>>>>> bcd99ef15eb2aac4d5605b4fa0494db3050abfe5
               </Col>
               <Modal
                 visible={this.state.visible}
