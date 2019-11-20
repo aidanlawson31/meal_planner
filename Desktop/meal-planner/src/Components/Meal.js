@@ -10,10 +10,7 @@ export default class Meal extends Component {
         title: "",
         description: "",
         price: "",
-        pictureURL: [],
-
-        size: "large",
-      
+        pictureURL: [],      
         visible: false
       }
       console.log(this.state);
@@ -25,6 +22,7 @@ export default class Meal extends Component {
             visible: true,
             title: meal.title,
             description: meal.description,
+            price: meal.price,
             pictureURL: meal.pictureURL
         });
     };
@@ -48,6 +46,7 @@ export default class Meal extends Component {
       var meal = {
           title: this.state.title,
           description: this.state.description,
+          price: this.state.price,
           pictureURL: this.state.pictureURL
       };
       this.props.handleMeals(meal)
@@ -85,12 +84,13 @@ export default class Meal extends Component {
                       cover={<img alt="example" src={meal.pictureURL} />}
                   >
                       <Meta 
-                      title={meal.title} 
+                      title={meal.title}
+                      price={meal.price} 
                       description={meal.description}
                        />
                        <br />
                       <Button type="primary" onClick={() => this.openModal(meal)}>
-                          Edit
+                          View
                       </Button>
                       <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
                   </Card>
@@ -100,26 +100,10 @@ export default class Meal extends Component {
                 onOk={this.handleEdit}
                 onCancel={this.closeModal}
               >
-
-              <form method="POST">
-                <Input
-                  placeholder="Title"
-                  allowClear
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.logChange}
-                />
-                <br />
-                <br />
-                <TextArea
-                  placeholder="Description"
-                  allowClear
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.logChange}
-                />
-              </form>
                 <h1>{this.state.title}</h1>
+                <img src={this.state.pictureURL}></img>
+                <br />
+                <h1>${this.state.price}</h1>
                 <br />
                 <br />
                 <p>{this.state.description}</p>
