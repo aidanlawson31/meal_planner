@@ -10,6 +10,8 @@ export default class Meal extends Component {
         title: "",
         description: "",
         price: "",
+        pictureURL: [],
+
         size: "large",
       
         visible: false
@@ -22,7 +24,8 @@ export default class Meal extends Component {
         this.setState({
             visible: true,
             title: meal.title,
-            description: meal.description
+            description: meal.description,
+            pictureURL: meal.pictureURL
         });
     };
       closeModal = () => {
@@ -44,7 +47,8 @@ export default class Meal extends Component {
       // create a variable that should be passed to the database
       var meal = {
           title: this.state.title,
-          description: this.state.description
+          description: this.state.description,
+          pictureURL: this.state.pictureURL
       };
       this.props.handleMeals(meal)
 
@@ -78,7 +82,7 @@ export default class Meal extends Component {
                   <Card
                       hoverable
                       style={{ width: 240 }}
-                      cover={<img alt="example" src={meal.pictures} />}
+                      cover={<img alt="example" src={meal.pictureURL} />}
                   >
                       <Meta 
                       title={meal.title} 
@@ -96,38 +100,36 @@ export default class Meal extends Component {
                 onOk={this.handleEdit}
                 onCancel={this.closeModal}
               >
+
+              <form method="POST">
+                <Input
+                  placeholder="Title"
+                  allowClear
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.logChange}
+                />
+                <br />
+                <br />
+                <TextArea
+                  placeholder="Description"
+                  allowClear
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.logChange}
+                />
+              </form>
                 <h1>{this.state.title}</h1>
                 <br />
                 <br />
                 <p>{this.state.description}</p>
+
               </Modal>
             </div>
           ))}
         </Row>
       </div> 
-      // <div>
-      //    <Card
-      //       style={{ width: 300 }}
-      //       cover={
-      //         <img
-      //           alt="example"
-      //           src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      //         />
-      //       }
-      //       actions={[
-      //         <Button type="primary">View meal</Button>,
-      //         <Button type="primary" icon="shopping-cart"> </Button>
-
-      //       ]}
-      //     >
-      //       <Meta
-      //         title="Meal name"
-      //         description="Meal description"
-      //         description="Meal Price"
-      //       />
-
-      //   </Card>
-      // </div>
+   
     )
   }
 }

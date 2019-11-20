@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Input} from "antd";
-import ImageUploader from 'react-images-upload';
 
 
 const {TextArea} = Input
@@ -12,7 +11,7 @@ export default class Form extends Component {
                 title: "",
                 description: "",
                 price: "",
-                pictures: []
+                pictureURL: ""
             }
     };
 
@@ -22,11 +21,7 @@ export default class Form extends Component {
         })
     };
 
-    onDrop = (picture) => {
-        this.setState({
-            pictures: this.state.pictures.concat(picture),
-        });
-    }
+
  
 
 
@@ -37,7 +32,7 @@ export default class Form extends Component {
                 title: this.title,
                 description: this.description,
                 price: this.price,
-                pictures: this.pictures
+                pictureURL: this.pictureURL
 
 
             })
@@ -68,13 +63,11 @@ export default class Form extends Component {
                     allowClear 
                     name="price"
                     onChange={this.onChange} />
-                <ImageUploader
-                    withIcon={true}
-                    buttonText='Choose images'
-                    onChange={this.onDrop}
-                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                    maxFileSize={5242880}
-                    />
+                 <Input 
+                    placeholder="Picture" 
+                    allowClear 
+                    name="pictureURL"
+                    onChange={this.onChange} />
                 <Input
                     placeholder="Submit"
                     type="submit"
