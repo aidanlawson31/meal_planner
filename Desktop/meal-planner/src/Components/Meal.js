@@ -88,6 +88,7 @@ export default class Meal extends Component {
                       title={meal.title} 
                       description={meal.description}
                        />
+                       <br />
                       <Button type="primary" onClick={() => this.openModal(meal)}>
                           Edit
                       </Button>
@@ -99,6 +100,7 @@ export default class Meal extends Component {
                 onOk={this.handleEdit}
                 onCancel={this.closeModal}
               >
+
               <form method="POST">
                 <Input
                   placeholder="Title"
@@ -117,34 +119,17 @@ export default class Meal extends Component {
                   onChange={this.logChange}
                 />
               </form>
+                <h1>{this.state.title}</h1>
+                <br />
+                <br />
+                <p>{this.state.description}</p>
+
               </Modal>
             </div>
           ))}
         </Row>
       </div> 
-      // <div>
-      //    <Card
-      //       style={{ width: 300 }}
-      //       cover={
-      //         <img
-      //           alt="example"
-      //           src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      //         />
-      //       }
-      //       actions={[
-      //         <Button type="primary">View meal</Button>,
-      //         <Button type="primary" icon="shopping-cart"> </Button>
-
-      //       ]}
-      //     >
-      //       <Meta
-      //         title="Meal name"
-      //         description="Meal description"
-      //         description="Meal Price"
-      //       />
-
-      //   </Card>
-      // </div>
+   
     )
   }
 }
