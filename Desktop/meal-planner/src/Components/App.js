@@ -19,14 +19,23 @@ class App extends Component {
       this.setState({
         meals: [...this.state.meals, meal]
       })
-      console.log("new",this.state.meals)
+      console.log("new meal created",this.state.meals)
     };
 
     // Retrieves all blogs at start of the app
     handleMeals = (meals) => {
       this.setState({meals})
-       console.log(meals)
     }
+
+    handleDeletedMeal = title => {
+      // create a copy of the existing blogs array
+      const index = this.state.meals.findIndex(meals => meals.title === title);
+      const meals = [...this.state.meals];
+      meals.splice(index, 1);
+      this.setState({
+          meals: meals
+      });
+  };
 
 
   render() { 
@@ -55,7 +64,7 @@ class App extends Component {
                   meals={meals}
                   handleNewMeal={this.handleNewMeal}
                   handleMeals={this.handleMeals}
-                  handledeletedMeal={this.handledeletedMeal}
+                  handleDeletedMeal={this.handleDeletedMeal}
                   />
                   <ViewMealModel />`
               </Content>

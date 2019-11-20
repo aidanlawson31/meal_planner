@@ -6,38 +6,38 @@ const { Meta } = Card;
 export default class Meal extends Component {
   constructor(props){
     super(props)
-      this.state = {
+      this.state = { 
         title: "",
         description: "",
         price: "",
         size: "large",
-
+      
         visible: false
       }
       console.log(this.state);
 
     }
 
-  openModal = meal => {
-    this.setState({
-        visible: true,
-        title: meal.title,
-        description: meal.description
-    });
-};
-  closeModal = () => {
-    this.setState({
-        visible: false
-    });
-  };
+      openModal = meal => {
+        this.setState({
+            visible: true,
+            title: meal.title,
+            description: meal.description
+        });
+    };
+      closeModal = () => {
+        this.setState({
+            visible: false
+        });
+      };
 
-  handleSizeChange = e => {
-    this.setState({ size: e.target.value });
-  };
-  
-    logChange = e => {
-      this.setState({ [e.target.name]: e.target.value });
-  };
+      handleSizeChange = e => {
+        this.setState({ size: e.target.value });
+      };
+      
+        logChange = e => {
+          this.setState({ [e.target.name]: e.target.value });
+      };
 
     handleEdit = e => {
       e.preventDefault();
@@ -46,21 +46,25 @@ export default class Meal extends Component {
           title: this.state.title,
           description: this.state.description
       };
-      this.setState(meal)
+      this.props.handleMeals(meal)
 
     }
 
-  //   fetchMeals = async (meals) => {
-  //     this.props.handleMeals(meals)
-  //   }
+    remove = meal => {
+      this.props.handleDeletedMeal(meal);
+      console.log("Trying to delete" + meal.title)
+    }
+
+    fetchMeals = () => {
+      this.props.handleMeals()
+    }
 
 
-  // // onViewMore = () => {
 
-  // // }
-  //     componentDidMount() {
-  //       this.fetchMeals();
-  //   }
+  // }
+    //   componentDidMount() {
+    //     this.fetchMeals();
+    // }
   render() {
     const { size } = this.state;
     const { meals } = this.props;
