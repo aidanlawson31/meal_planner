@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Input} from "antd";
+import ImageUploader from 'react-images-upload';
+
 
 const {TextArea} = Input
 
@@ -9,7 +11,8 @@ export default class Form extends Component {
             this.state = {
                 title: "",
                 description: "",
-                price: ""
+                price: "",
+                pictures: []
             }
     };
 
@@ -19,12 +22,24 @@ export default class Form extends Component {
         })
     };
 
+    onDrop = (picture) => {
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        });
+    }
+ 
+
+
     onSubmit = e => {
         e.preventDefault()
         console.log(e)
              this.setState({
                 title: this.title,
-                description: this.description
+                description: this.description,
+                price: this.price,
+                pictures: this.pictures
+
+
             })
             let meal = this.state
             this.props.handleNewMeal(meal)
@@ -42,16 +57,24 @@ export default class Form extends Component {
                     onChange={this.onChange} />
                 <br />
                 <br />
+    
                 <TextArea 
                     placeholder="Meal description" 
                     allowClear 
                     name="description"
                     onChange={this.onChange} />
-                    <Input 
+                <Input 
                     placeholder="Meal Price" 
                     allowClear 
                     name="price"
                     onChange={this.onChange} />
+                <ImageUploader
+                    withIcon={true}
+                    buttonText='Choose images'
+                    onChange={this.onDrop}
+                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    />
                 <Input
                     placeholder="Submit"
                     type="submit"
