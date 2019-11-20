@@ -79,7 +79,7 @@ export default class Meal extends Component {
                   <Card
                       hoverable
                       style={{ width: 240 }}
-                      cover={<img alt="example" src={meal.pictures} />}
+                      cover={<img alt="example" src={meal.pictures[0].file} />}
                   >
                       <Meta 
                       title={meal.title} 

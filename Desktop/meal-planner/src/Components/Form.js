@@ -24,8 +24,10 @@ export default class Form extends Component {
 
     onDrop = (picture) => {
         this.setState({
-            pictures: this.state.pictures.concat(picture),
+            pictures: this.state.pictures.concat(picture)
+           
         });
+        console.log("Checking to see if picture upload " + this.state.pictures)
     }
  
 
