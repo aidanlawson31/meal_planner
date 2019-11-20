@@ -75,43 +75,31 @@ export default class Meal extends Component {
           {meals.map(meal => (
             <div>
               <Col span={6}>
-                <Card
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt="example" src="https://www.anita.com/blog/us/wp-content/uploads/sites/3/2016/02/blog-success.jpg" />}
-                >
-                  <Meta 
-                  title={meal.title} 
-                  description={meal.description} />
-                  <Button type="primary" onClick={() => this.openModal(meal)}>
-                    Edit
-                  </Button>
-                  <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
-                </Card>
+                  <Card
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="example" src={meal.pictures} />}
+                  >
+                      <Meta 
+                      title={meal.title} 
+                      description={meal.description}
+                       />
+                       <br />
+                      <Button type="primary" onClick={() => this.openModal(meal)}>
+                          Edit
+                      </Button>
+                      <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
+                  </Card>
               </Col>
               <Modal
                 visible={this.state.visible}
                 onOk={this.handleEdit}
                 onCancel={this.closeModal}
               >
-              <form method="POST">
-                <Input
-                  placeholder="Title"
-                  allowClear
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.logChange}
-                />
+                <h1>{this.state.title}</h1>
                 <br />
                 <br />
-                <TextArea
-                  placeholder="Description"
-                  allowClear
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.logChange}
-                />
-              </form>
+                <p>{this.state.description}</p>
               </Modal>
             </div>
           ))}
