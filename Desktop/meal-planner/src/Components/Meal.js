@@ -75,21 +75,21 @@ export default class Meal extends Component {
           {meals.map(meal => (
             <div>
               <Col span={6}>
-                <Card
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt="example" src="https://www.anita.com/blog/us/wp-content/uploads/sites/3/2016/02/blog-success.jpg" />}
-                >
-                  <Meta 
-                  title={meal.title} 
-                  description={meal.description} />
-                                    <br />
-                  <Button type="primary" onClick={() => this.openModal(meal)}>
-                    View
-                  </Button>
-                  <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
-                  <br />
-                </Card>
+                  <Card
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="example" src={meal.pictures} />}
+                  >
+                      <Meta 
+                      title={meal.title} 
+                      description={meal.description}
+                       />
+                       <br />
+                      <Button type="primary" onClick={() => this.openModal(meal)}>
+                          Edit
+                      </Button>
+                      <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
+                  </Card>
               </Col>
               <Modal
                 visible={this.state.visible}
