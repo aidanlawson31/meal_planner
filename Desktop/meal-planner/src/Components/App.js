@@ -13,23 +13,28 @@ class App extends Component {
     meals: [],
   }
 
-  // Handling new meals
-  handleNewMeal = (meal) => {
-    this.setState({
-      meals: [...this.state.meals, meal]
-    })
-    console.log("new",this.state.meals)
+    // Handling new meals
+    handleNewMeal = (meal) => {
+      this.setState({
+        meals: [...this.state.meals, meal]
+      })
+      console.log("new meal created",this.state.meals)
+    };
+
+    // Retrieves all blogs at start of the app
+    handleMeals = (meals) => {
+      this.setState({meals})
+    }
+
+    handleDeletedMeal = title => {
+      // create a copy of the existing blogs array
+      const index = this.state.meals.findIndex(meals => meals.title === title);
+      const meals = [...this.state.meals];
+      meals.splice(index, 1);
+      this.setState({
+          meals: meals
+      });
   };
-
-  // Retrieves all blogs at start of the app
-  handleMeals = (meals) => {
-    this.setState({meals})
-      console.log(meals)
-  }
-
-  handleKeyPress = (event) => {
-    console.log(event.key);
-  }
 
   render() { 
     const {meals} = this.state
@@ -62,7 +67,7 @@ class App extends Component {
         meals={meals} 
         handleNewMeal={this.handleNewMeal} 
         handleMeals={this.handleMeals} 
-        handledeletedMeal={this.handledeletedMeal}
+        handleDeletedMeal={this.handleDeletedMeal}
         />
         <Form 
         path="Form" 
