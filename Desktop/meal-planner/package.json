@@ -7,6 +7,8 @@
     "antd": "^3.25.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-images-upload": "^1.2.7",
+    "react-native": "^0.61.4",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "^2.0.0-alpha.11",
