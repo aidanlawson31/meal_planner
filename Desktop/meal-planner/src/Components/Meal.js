@@ -83,6 +83,7 @@ export default class Meal extends Component {
                   <Meta 
                   title={meal.title} 
                   description={meal.description} />
+                                    <br />
                   <Button type="primary" onClick={() => this.openModal(meal)}>
                     View
                   </Button>
