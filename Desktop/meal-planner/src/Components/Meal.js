@@ -84,9 +84,10 @@ export default class Meal extends Component {
                   title={meal.title} 
                   description={meal.description} />
                   <Button type="primary" onClick={() => this.openModal(meal)}>
-                    Edit
+                    View
                   </Button>
                   <Button type="danger" style={{ margin: "0 20px" }} onClick={() => this.remove(meal)}> Delete </Button>
+                  <br />
                 </Card>
               </Col>
               <Modal
@@ -94,24 +95,10 @@ export default class Meal extends Component {
                 onOk={this.handleEdit}
                 onCancel={this.closeModal}
               >
-              <form method="POST">
-                <Input
-                  placeholder="Title"
-                  allowClear
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.logChange}
-                />
+                <h1>{this.state.title}</h1>
                 <br />
                 <br />
-                <TextArea
-                  placeholder="Description"
-                  allowClear
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.logChange}
-                />
-              </form>
+                <p>{this.state.description}</p>
               </Modal>
             </div>
           ))}
